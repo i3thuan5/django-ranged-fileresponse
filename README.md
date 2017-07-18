@@ -1,6 +1,6 @@
 # Django Ranged File Response
-[![Build Status](https://travis-ci.org/i3thuan5/django-ranged-fileresponse.svg?branch=master)](https://travis-ci.org/i3thuan5/django-ranged-fileresponse)
-[![Coverage Status](https://coveralls.io/repos/github/i3thuan5/django-ranged-fileresponse/badge.svg?branch=master)](https://coveralls.io/github/i3thuan5/django-ranged-fileresponse?branch=master)
+[![Build Status](https://travis-ci.org/i3thuan5/django-ranged-response.svg?branch=master)](https://travis-ci.org/i3thuan5/django-ranged-response)
+[![Coverage Status](https://coveralls.io/repos/github/i3thuan5/django-ranged-response/badge.svg?branch=master)](https://coveralls.io/github/i3thuan5/django-ranged-response?branch=master)
 
 ## About
 If you're in the situation that you have an authenticated Django view that returns
@@ -14,7 +14,7 @@ applies the code to Django's static view. This is a packaged version of that fix
 but uses a modified FileResponse, instead of applying it to Django's static view.
 You can use it for custom views like:
 
-    from ranged_fileresponse import RangedFileResponse
+    from ranged_response import RangedFileResponse
 
     def some_proxy_view(request):
         filename = 'myfile.wav'
