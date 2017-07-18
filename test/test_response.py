@@ -3,7 +3,7 @@ import io
 from django.test.client import RequestFactory
 from django.test.testcases import TestCase
 
-from ranged_fileresponse import RangedFileResponse
+from ranged_response import RangedFileResponse
 
 
 class testResponse(TestCase):

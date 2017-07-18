@@ -13,9 +13,18 @@ install:
 branches:
   only:
   - master
-  - /\d+\.\d+\.\d+/
+  - "/\\d+\\.\\d+\\.\\d+/"
 script:
 - tox -e $TOX_ENV
 after_success:
 - coverage report
 - coveralls
+deploy:
+  provider: pypi
+  user: sih4sing5hong5
+  password:
+    secure: juK3GcKdHjQMW0pKdAXfg6/iymdZgoHdI7VxleLLNsHGCWCgVuCcRLl4YcuZ5D6skyi0y7hr0WdiQyKOphcO20m5ImpYXDiqUhfBEuybGZjFWBdYkL7kK5xrqGkymNvsJiBBxWLMcbuiRNaGkT163pQ4F8olaJs55wthfOcJMVLPFbuDT2cTmRjUdK5o5qoYcUqsjomLph9mLQWCByTWuEu2WilpqcqxqngbuRZDHDXs/ZKFNX0RGmk6DU24ZlK5sROOm21kvobCmS1BZMi2k1Cz8RpCBjHQKc879dytRri773I2QTLFWSChOEdekS5i7Mm26mAuG4B7/D4BcljpscwzFhOXeG71UKmZDaScxRu3rwtDxXrwrflznEdyXP5O+KRUfPz77OoZtrYKVflSlDQSRbtaBV9Bp/DLtPieuLBnXl545FBZpMRgjJ4Ba9TmvT6eCpkwmkrtWzcxCW8evBj525Okih5UB0ZljNwGBXVMg3V3bitxVUF2tBVr/DHWumRxFT+f56HJKfSJvnyVorFgB80tCmM+vmaSX/Fo4tnR17niyqSckyWFV7Jv34TdmS2ZQUHtAQszuIqw9coPGroMa2sK27GTuGAPlN+SkJ2RYrCbDp1ChrwA6kmPw92/GVKurvWXo4ev3hiR7bBggsmVtjAp2yF6MxsglEgJaKI=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: i3thuan5/django-ranged-response
