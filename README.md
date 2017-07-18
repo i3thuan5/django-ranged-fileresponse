@@ -1,4 +1,4 @@
-# Django Ranged File Response
+# Django Ranged Response
 [![Build Status](https://travis-ci.org/i3thuan5/django-ranged-response.svg?branch=master)](https://travis-ci.org/i3thuan5/django-ranged-response)
 [![Coverage Status](https://coveralls.io/repos/github/i3thuan5/django-ranged-response/badge.svg?branch=master)](https://coveralls.io/github/i3thuan5/django-ranged-response?branch=master)
 
