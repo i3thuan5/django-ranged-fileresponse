@@ -26,12 +26,19 @@ This project supports content range of specific dynamic views. The views are mos
 
 You can use it for custom views like:
 
+    import io
     from ranged_response import RangedFileResponse
 
     def some_proxy_view(request):
         filename = 'myfile.wav'
-        response = RangedFileResponse(request, open(filename, 'r'), content_type='audio/wav')
+        response = RangedFileResponse(request, open(filename, 'rb'), content_type='audio/wav')
         response['Content-Disposition'] = 'attachment; filename="%s"' % filename
+        return response
+
+    def some_dynamic_view(request):
+        binarydata = b'RIFF...'
+        response = RangedFileResponse(request, io.BytesIO(binarydata), content_type='audio/wav')
+        response['Content-Disposition'] = 'attachment; filename="myfile.wav"'
         return response
 
 
