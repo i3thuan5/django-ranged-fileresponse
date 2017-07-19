@@ -22,7 +22,7 @@ Nginx can support static and media files.
 See more details on [Setting up Django and your web server with uWSGI and nginx](http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html#configure-nginx-for-your-site). If some views need redirect to static or media files, see [the stackoverflow answer](https://stackoverflow.com/a/23404382/3640653).
 
 ### 3. Support specific dynamic views only
-This project supports content range of specific dynamic views. The views are mostly designed for media API, like speech synthesis, video generators.
+This project supports `RangedFileResponse` with content range. Use `RangedFileResponse` for every view you wanted. The views are mostly designed for media API, like speech synthesis, video generators.
 
 You can use it for custom views like:
 
