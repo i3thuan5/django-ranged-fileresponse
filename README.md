@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/i3thuan5/django-ranged-response.svg?branch=master)](https://travis-ci.org/i3thuan5/django-ranged-response)
 [![Coverage Status](https://coveralls.io/repos/github/i3thuan5/django-ranged-response/badge.svg?branch=master)](https://coveralls.io/github/i3thuan5/django-ranged-response?branch=master)
 
+This project supports content range of specific dynamic views. The views are mostly designed for media API, like speech synthesis, video generators. If you need support content range in other situations, see [Three approches about content range](). 
+
 ## About
 If you're in the situation that you have an authenticated Django view that returns
 files for download, you may have noticed that Safari 9.x doesn't play audio files
@@ -22,15 +24,16 @@ You can use it for custom views like:
         response['Content-Disposition'] = 'attachment; filename="%s"' % filename
         return response
 
-## All approches about 206 partial content
+## Three approches about content range
+Choose proper one by .
 
-### Support all dynamic views and static files
-The [WhiteNoise](http://whitenoise.evans.io/en/stable/index.html) provides a middleware to support 206.
+### 1. Support all dynamic views and static files
+The [WhiteNoise](http://whitenoise.evans.io/en/stable/index.html) provides a middleware to support global settings.
 
-### Support specific dynamic views returning 206
-This project just does this.
+### 2. Support static files only
+Django's views don't support content range. But nginx can support static and media files.
 
-### Support static files
-Django's views don't support 206. But nginx can support static and media files.
+See more details on [Setting up Django and your web server with uWSGI and nginx](http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html#configure-nginx-for-your-site). If some views need redirect to static or media files, see [the stackoverflow answer](https://stackoverflow.com/a/23404382/3640653).
 
-See more detail on [Setting up Django and your web server with uWSGI and nginx](http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html#configure-nginx-for-your-site). If some views need redirect to static or media files, see [the stackoverflow answer](https://stackoverflow.com/a/23404382/3640653).
+### 3. Support specific dynamic views only
+This project does this. See the example above.
