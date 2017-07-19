@@ -21,3 +21,16 @@ You can use it for custom views like:
         response = RangedFileResponse(request, open(filename, 'r'), content_type='audio/wav')
         response['Content-Disposition'] = 'attachment; filename="%s"' % filename
         return response
+
+## All approches about 206 partial content
+
+### Support all dynamic views and static files
+The [WhiteNoise](http://whitenoise.evans.io/en/stable/index.html) provides a middleware to support 206.
+
+### Support specific dynamic views returning 206
+This project just does this.
+
+### Support static files
+Django's views don't support 206. But nginx can support static and media files.
+
+See more detail on [Setting up Django and your web server with uWSGI and nginx](http://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html#configure-nginx-for-your-site). If some views need redirect to static or media files, see [the stackoverflow answer](https://stackoverflow.com/a/23404382/3640653).
