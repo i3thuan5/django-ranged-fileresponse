@@ -24,6 +24,13 @@ See more details on [Setting up Django and your web server with uWSGI and nginx]
 ### 3. Support specific dynamic views only
 This project supports `RangedFileResponse` with content range. Use `RangedFileResponse` for every view you wanted. The views are mostly designed for media API, like speech synthesis, video generators.
 
+#### Installation
+```
+pip install django-ranged-response
+```
+
+#### Usage
+
 You can use it for custom views like:
 
     import io
